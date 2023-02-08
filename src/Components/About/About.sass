@@ -1,0 +1,114 @@
+.about
+    height: 100%
+    background: black
+    overflow: hidden
+
+.about-container
+    margin: 30vh 0 25vh
+    width: 100%
+    overflow: hidden
+
+.block-image-overflow
+    margin: 0 auto
+    max-width: 70%
+
+.title-box-about
+    position: relative
+    display: block
+    overflow: hidden
+.logo-link:after
+    cursor: pointer
+    position: fixed
+    z-index: 9
+    font-size: 2vw
+    top: 10%
+    color: white
+    font-family: "Inter-Black"
+    content: "shafar."
+
+
+.logo-link:hover:after
+    content: "shafar.about"
+    white-space: nowrap
+.logo-animate
+    transition: all .4s cubic-bezier(0.2, 0.6, 0.2, 1)
+.logo-animate:hover
+    margin-left: -40px
+    transition: all .4s cubic-bezier(0.2, 0.6, 0.2, 1)
+
+.logo-link-box
+    float: right
+    width: 5vw
+    cursor: pointer
+
+.animate-title
+    position: relative
+    display: block
+    overflow: hidden
+.title-about
+    color: white
+    font-family: "Inter-bold"
+    font-style: normal
+    font-weight: 700
+    font-size: 7vw
+
+.me-photo-box-about
+    overflow: hidden
+    margin: 30vh 0
+    width: 100vw
+    height: 90vh
+
+.me-photo-box-about
+    img
+        width: 100%
+        height: 100vh
+        object-fit: cover
+
+.me-photo-about
+    height: 100%
+
+.info-section-box
+
+    height: auto
+
+.title-section
+    font-weight: bold
+    font-size: 6vw
+    color: white
+
+.personal-info
+    margin-top: 5vw
+    width: 80vw
+    font-size: 4vw
+    color: #A0A0A0
+
+.about-content
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-wrap: wrap
+
+.red-opacity
+    background: linear-gradient(2.23deg, #FF0000 -340.39%, rgba(255, 0, 0, 0) 100.22%)
+    width: 100%
+    height: 25vh
+
+@media screen and (max-width: 420px)
+    .about-container
+        margin: 25vh 0 15vh
+        width: 100%
+        overflow: hidden
+    .title-about
+        font-size: 10vw
+        font-family: "Inter-Black"
+        font-weight: 900
+    .logo-link:after
+        font-size: 5vw
+        font-family: "Inter-bold"
+    .me-photo-box-about
+        margin: 45vh 0 20vh
+    .title-section
+        font-size: 10vw
+    .personal-info
+        font-size: 5.5vw
+        color: #A0A0A0

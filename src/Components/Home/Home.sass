@@ -1,0 +1,94 @@
+.home
+    overflow: hidden
+    display: flex
+    justify-content: space-between
+    align-items: center
+    background: black
+    height: 100vh
+    width: 100vw
+.me-photo-home
+    display: flex
+    justify-content: left
+    object-fit: cover
+    height: 100vh
+    overflow: hidden
+
+.button-link-box-home
+
+    margin-right: 10vw
+    display: flex
+    align-items: center
+    flex-wrap: wrap
+    width: 40vw
+    height: 70vh
+
+.button-link-home
+    cursor: pointer
+    float: left
+    text-decoration: none
+    width: 40vw
+    display: flex
+    align-items: center
+    justify-content: left
+    color: white
+    font-family: 'Inter-bold'
+    font-size: 8vw
+    line-height: 3vh
+    padding-left: 20px
+    height: 12vh
+
+.hide-text-block
+    position: relative
+    display: block
+    overflow: hidden
+.text-color-red
+    color: red !important
+
+.label-hello:after
+    content: "Hello."
+
+.label-hello:hover:after
+    content: "About"
+
+.label-skills:after
+    content: "I am"
+
+.label-skills:hover:after
+    content: "Skills"
+
+.label-contacts:after
+    content: "Rostislav"
+
+.label-contacts:hover:after
+    content: "Contacts"
+
+.animate
+    transition: all .4s cubic-bezier(0.2, 0.6, 0.2, 1)
+.animate:hover
+    margin-left: 40px
+    transition: all .4s cubic-bezier(0.2, 0.6, 0.2, 1)
+
+.contacts-container
+    width: 50vw
+    height: 80vh
+.back-button
+    font-size: 4vw
+    color: white
+
+@media screen and (max-width: 400px)
+    .home
+        flex-wrap: wrap
+    .me-photo-home
+        display: block
+        margin: 0 auto
+        height: 60vh
+    .button-link-box-home
+
+        background-color: rgba(160, 160, 160, 0)
+        display: block
+        margin: 0 auto
+        width: 80vw
+        height: 40vh
+
+    .button-link-home
+        font-size: 15vw
