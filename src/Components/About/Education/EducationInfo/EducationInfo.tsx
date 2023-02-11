@@ -1,5 +1,6 @@
 import "./EducationInfo.sass"
 import {motion} from "framer-motion";
+
 const EducationInfo = () => {
     return(
         <div className="education-info">
