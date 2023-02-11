@@ -2,7 +2,7 @@ import {useState} from "react";
 import {motion,AnimatePresence} from "framer-motion";
 import {useNavigate} from "react-router-dom"
 import "./Home.sass";
-import mePhoto from "./Avatarrr.png"
+import mePhoto from "./Avatar.png"
 import Contacts from "../Contacts/Contacts";
 
 const Home = () => {
