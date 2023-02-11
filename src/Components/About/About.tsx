@@ -89,7 +89,6 @@ const About = () => {
                 <Education/>
                 <Experience/>
             </div>
-            <div className="red-opacity"></div>
         </motion.div>
     )
 }

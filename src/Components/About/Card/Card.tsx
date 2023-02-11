@@ -6,25 +6,26 @@ import CardInfo from "./CardInfo/CardInfo";
 
 
 const Card = ( ) =>{
-    const [mobileVersion] = useState(window.innerWidth <= 420 ? true : false);
-
+    const [mobileVersion] = useState(window.innerWidth <= 440 ? true : false)
     return(
         <motion.div className="card">
-            <motion.div
-
-                initial={mobileVersion ? {y:"-50vw", opacity: 0} : {x:"50vw", opacity: 0} }
-                whileInView={mobileVersion ? {y:0, transition: {duration: 0.8,delay: 1.2}, opacity: 1}:{x:0, transition: {duration: 0.8,delay: 1.2}, opacity: 1}}
-                className="card-info-about-box">
+            <motion.div className="card-container">
                 <motion.div
-                    className="card-text-name-about red-text">
-                    Shafar Rostislav Leonidovich
+                    initial={{x:"50vw", opacity: 0} }
+                    whileInView={{x:0, transition: {duration: 0.8,delay: 1.2}, opacity: 1}}
+                    className="card-info-about-box">
+                    <motion.div
+                        className="card-text-name-about red-text">
+                        Shafar Rostislav Leonidovich
+                    </motion.div>
+                    {!mobileVersion ? <CardInfo/> : ""}
                 </motion.div>
-                modileVersion ? <CardInfo/> : {}
+                <motion.img
+                    initial={{x: "-50vw"}}
+                    whileInView={{x: 0, transition: {duration: 0.8, delay: 0.5}}}
+                    className="icon-card-about" src={cardPNG} />
             </motion.div>
-            <motion.img
-                initial={{x: "-50vw"}}
-                whileInView={{x: 0, transition: {duration: 0.8, delay: 0.5}}}
-                className="icon-card-about" src={cardPNG} />
+            {mobileVersion ? <CardInfo/> : ""}
         </motion.div>
     )
 }

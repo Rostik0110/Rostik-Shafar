@@ -3,9 +3,11 @@
     justify-content: center
     align-items: center
     margin: 25vh 0 10vh
+
 .icon-education-about
     width: 30vw
     order: 1
+
 .education-info-about-box
     order: 2
     width: 60vw
@@ -15,13 +17,19 @@
     font-size: 2.5vw
     margin-bottom: 2vw
 
-.education-info-bachelor-about
-    margin-bottom: 1vw
-    color: red
-    font-size: 3vw
-    font-weight: bold
+.education-container
+    display: flex
+    justify-content: center
+    align-items: center
 
-.education-info-other-about
-    margin-left: 10vw
-    font-size: 2vw
-    color: white
+@media screen and (max-width: 440px)
+    .education
+        display: block
+        margin: 15vh 0 10vh
+
+    .icon-education-about
+        margin-left: 10vw
+        width: 50vw
+
+    .education-info-date-about
+        font-size: 8vw

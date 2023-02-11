@@ -38,9 +38,6 @@ const Skills = () => {
             <MySkills/>
             <Languages/>
             <PersonalQualities/>
-            <div className="red-opacity">
-
-            </div>
         </motion.div>
     )
 }
