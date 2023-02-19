@@ -2,6 +2,7 @@ import {useState} from "react";
 import "./Contacts.sass";
 
 const Contacts = () => {
+
     return(
         <div className="contacts">
             <h1 className="title-contacts text-color-red">Contacts</h1>

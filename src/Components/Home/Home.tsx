@@ -5,12 +5,26 @@ import "./Home.sass";
 import mePhoto from "./Avatar.png"
 import Contacts from "../Contacts/Contacts";
 
+
 const Home = () => {
+    const [mobileVersion] = useState(window.innerWidth <= 440 )
     const [displayNone, setDisplayNone] = useState(true)
     const [contactsBox, setContactsBox] = useState(false)
     const [animationPage, setAnimationPage] = useState(false)
+    const [eventMVersion,setEventMVersion] = useState(false)
     const navigate = useNavigate()
 
+    const ButtonLink = (link:string) =>{
+        setEventMVersion(false);
+        setAnimationPage(true);
+        setTimeout(() => {
+            navigate(link)
+        }, 1500);
+    }
+    const ContactsButtonLink = () =>{
+        setDisplayNone(false);
+        setTimeout(()=>{setContactsBox(true)},1100)
+    }
     const textAnimation = {
         hidden: {
             y: "15vh"
@@ -47,8 +61,10 @@ const Home = () => {
             transition: {duration: 1.5}
         }
     }
+
     return (
         <motion.div
+             onClick={()=>{ mobileVersion &&  setEventMVersion(!eventMVersion); console.log(eventMVersion)}}
             initial={animationPage ? "setHidden" : "hidden"}
             animate={animationPage ? "setVisible" : "visible"}
             className="home">
@@ -57,38 +73,37 @@ const Home = () => {
                 className="me-photo-home"
                 src={mePhoto}/>
                 <AnimatePresence>
-                    {displayNone && (<motion.div
+                    {displayNone && (
+                    <motion.div
                         initial={animationPage ? "setHidden" : "hidden"}
                         animate={animationPage ? "setVisible" : "visible"}
                         exit={ {opacity: 0, transition:{duration:1}}}
                         className="button-link-box-home">
                         <div className="hide-text-block">
                             <motion.div variants={textAnimation} onClick={() => {
-                                setAnimationPage(true);
-                                setTimeout(() => {
-                                    navigate('/about')
-                                }, 1500)
+                                mobileVersion ? eventMVersion && ButtonLink("/about") : ButtonLink("/about")
+
                             }
                             } className="button-link-home label-hello animate">
-
+                                <motion.div className="animate">{mobileVersion && (!eventMVersion ? <motion.p className="animate" >Hello.</motion.p> : <motion.p >About</motion.p>)}</motion.div>
                             </motion.div>
                         </div >
                         <div className="hide-text-block">
                             <motion.div variants={textAnimation} onClick={() => {
-                                setAnimationPage(true);
-                                setTimeout(() => {
-                                    navigate('/skills')
-                                }, 1500)
+                                mobileVersion ? eventMVersion && ButtonLink("/skills") : ButtonLink("/skills")
                             }
                             } className="button-link-home label-skills text-color-red animate">
-
+                                {mobileVersion && (!eventMVersion ? "I am" : "Skills")}
                             </motion.div>
                         </div>
                         <div className="hide-text-block">
                             <motion.div
                                 variants={textAnimation}
-                                onClick={()=>{setDisplayNone(false);setTimeout(()=>{setContactsBox(true)},1100)}}
+                                onClick={()=>{
+                                    eventMVersion && ContactsButtonLink()
+                                }}
                                 className="button-link-home text-color-red label-contacts animate">
+                                {mobileVersion && (!eventMVersion ? "Rostislav" : "Contacts")}
                             </motion.div>
                         </div>
                     </motion.div>)}
