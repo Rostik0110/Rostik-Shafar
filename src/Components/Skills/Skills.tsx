@@ -24,7 +24,7 @@ const Skills = () => {
                             navigate('../')
                         }, 1000)}}
 
-                         className="logo-link logo-animate">
+                         className="logo-link-s logo-animate">
 
                     </div>
                 </div>

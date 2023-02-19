@@ -1,14 +1,50 @@
 .text-color-red
     color: red
+
 .title-contacts
     font-family: "Inter-bold"
     font-size: 8vw
     margin: 0 auto
+
 .contacts
     a
         text-decoration: none
+
 .contacts-box
     font-family: "Inter-bold"
     font-size: 2vw
+
 .text-color-white
     color: white
+
+.contacts-line-box
+    display: flex
+    flex-wrap: nowrap
+    justify-content: left
+    align-items: center
+    margin: 5vh 0
+
+.icon-contact
+    width: 5vw
+    height: 5vw
+    margin-right: 1vw
+
+@media screen and (max-width: 440px)
+    .contacts
+        width: 100vw
+
+    .title-contacts
+        text-align: center
+        font-size: 16vw
+
+    .icon-contact
+        width: 10vw
+        height: 10vw
+
+    .contacts-line-box
+        font-size: 4vw
+        margin: 5vw 0
+
+    .contacts-box
+        margin: 0 20vw
+

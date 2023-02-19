@@ -89,6 +89,7 @@
   display: none
 .button-link-box-home-mobile
   display: none
+
 @keyframes jump
   0%
     transform: translateY(0)
@@ -96,6 +97,28 @@
     transform: translateY(-10px)
   100%
     transform: translateY(0)
+
+.logo-link-h:after
+  cursor: pointer
+  position: fixed
+  z-index: 9
+  font-size: 2vw
+  top: 10%
+  left: 90%
+  color: white
+  font-family: "Inter-bold"
+  content: "shafar."
+
+.logo-link-h:hover:after
+  content: "shafar.contacts"
+  white-space: nowrap
+
+.logo-box
+  width: 85%
+.logo-link-h
+  cursor: pointer
+  width: 2vw
+
 @media screen and (max-width: 440px)
   .home
     flex-wrap: wrap
@@ -142,7 +165,6 @@
   .label-contacts:hover:after
     display: none
 
-
   .tap-anywhere
     display: block
     text-align: center
@@ -154,3 +176,11 @@
     z-index: 4
     font-size: 4vw
     animation: jump 1.5s infinite
+
+  .logo-link-h:after
+    font-size: 4vw
+    left: 68%
+
+
+
+

@@ -7,6 +7,7 @@ import Contacts from "../Contacts/Contacts";
 
 
 const HomeTest = () => {
+
     const [mobileVersion] = useState(window.innerWidth <= 440)
     const [displayNone, setDisplayNone] = useState(true)
     const [contactsBox, setContactsBox] = useState(false)
@@ -35,6 +36,15 @@ const HomeTest = () => {
             y: 0,
             transition: {duration: 0.5},
         },
+        setHidden: {
+            y: 0,
+            opacity: 1
+        },
+        setVisible: {
+            y: 0,
+            opacity: 0,
+            transition: {duration: 1.5}
+        }
 
     }
     const photoAnimation = {
@@ -71,6 +81,7 @@ const HomeTest = () => {
                     animate={animationPage ? "setVisible" : "visible"}
                     variants={opacityNone}
                     className="home">
+
                     {displayNone && (
                         <div className="layer" onClick={() => {
                             mobileVersion && displayNone && setEventMVersion(!eventMVersion)
@@ -84,6 +95,9 @@ const HomeTest = () => {
                     <AnimatePresence>
                         {displayNone && (
                             <>
+                                <motion.div
+                                    exit={{opacity: 0, transition: {duration: 1}}}
+                                    className="tap-anywhere">Tap anywhere</motion.div>
                                 {!mobileVersion && (
                                     <motion.div
                                         initial={animationPage ? "setHidden" : "hidden"}
@@ -181,31 +195,40 @@ const HomeTest = () => {
                     </AnimatePresence>
                     <AnimatePresence>
                         {contactsBox && (
+                            <>
+
                             <motion.div
                                 initial={{opacity: 0}}
                                 animate={contactsBox && {opacity: 1, transition: {duration: 1}}}
                                 exit={{opacity: 0, transition: {duration: 1}}}
                                 className="contacts-container"
                             >
-                                <Contacts/>
-                                <div className="back-button" onClick={() => {
-                                    setContactsBox(false);
-                                    setEventMVersion(true);
-                                    setTimeout(() => {
-                                        setDisplayNone(true)
-                                    }, 1100)
-                                }}>Back
+                                <div className="logo-box">
+                                    <div
+                                        className="logo-link-box">
+                                        <div onClick={() => {
+                                            setContactsBox(false);
+                                            setEventMVersion(true);
+                                            setTimeout(() => {
+                                                setDisplayNone(true)
+                                            }, 1100)
+                                        }}
+                                             className="logo-link-h logo-animate">
+                                        </div>
+                                    </div>
                                 </div>
-                            </motion.div>)}
+                                <Contacts/>
+                            </motion.div>
+                            </>
+                            )}
                     </AnimatePresence>
                 </motion.div>
 
-            {displayNone && (
-                <motion.div
-                    className="tap-anywhere">Tap anywhere</motion.div>)}
-        </AnimatePresence>
 
-            )}
+
+        </AnimatePresence>
+    )
+}
 
 
 export default HomeTest;
