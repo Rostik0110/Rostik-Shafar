@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {motion, AnimatePresence} from "framer-motion";
 import {useNavigate} from "react-router-dom"
 import "./HomeTest.sass";
@@ -8,12 +8,26 @@ import Contacts from "../Contacts/Contacts";
 
 const HomeTest = () => {
 
-    const [mobileVersion] = useState(window.innerWidth <= 440)
+    const [mobileVersion,setMobileVersion] = useState(false)
     const [displayNone, setDisplayNone] = useState(true)
     const [contactsBox, setContactsBox] = useState(false)
     const [animationPage, setAnimationPage] = useState(false)
-    const [eventMVersion, setEventMVersion] = useState(true)
+    const [eventMVersion, setEventMVersion] = useState(false)
     const navigate = useNavigate()
+    useEffect(() => {
+        function handleResize() {
+            if(window.innerWidth <=440){
+                setMobileVersion(true)
+            }
+            else{
+                setMobileVersion(false)
+            }
+        }
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, []);
+
+
 
 
     const ButtonLink = (link: string) => {
@@ -213,18 +227,17 @@ const HomeTest = () => {
                                                 setDisplayNone(true)
                                             }, 1100)
                                         }}
-                                             className="logo-link-h logo-animate">
+                                             className="logo-link-h logo-animate-c">
                                         </div>
                                     </div>
                                 </div>
                                 <Contacts/>
+
                             </motion.div>
                             </>
                             )}
                     </AnimatePresence>
                 </motion.div>
-
-
 
         </AnimatePresence>
     )
