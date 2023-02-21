@@ -1,4 +1,8 @@
-.card
+.card-desktop
+    width: 85vw
+    margin: 10vh 0
+.card-mobile
+    display: none
     width: 85vw
     margin: 10vh 0
 .card-info-about-box
@@ -17,7 +21,12 @@
     flex-wrap: nowrap
 
 @media screen and (max-width: 440px)
+
     .card-text-name-about
         font-size: 7vw
         margin-left: 1vw
         color: white
+    .card-desktop
+        display: none
+    .card-mobile
+        display: block

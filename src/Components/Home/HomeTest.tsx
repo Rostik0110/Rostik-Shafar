@@ -8,11 +8,11 @@ import Contacts from "../Contacts/Contacts";
 
 const HomeTest = () => {
 
-    const [mobileVersion,setMobileVersion] = useState(false)
+    const [mobileVersion,setMobileVersion] = useState(window.innerWidth <= 440)
     const [displayNone, setDisplayNone] = useState(true)
     const [contactsBox, setContactsBox] = useState(false)
     const [animationPage, setAnimationPage] = useState(false)
-    const [eventMVersion, setEventMVersion] = useState(false)
+    const [eventMVersion, setEventMVersion] = useState(true)
     const navigate = useNavigate()
     useEffect(() => {
         function handleResize() {
@@ -89,6 +89,21 @@ const HomeTest = () => {
 
     return (
         <AnimatePresence>
+            {contactsBox && (
+            <div className="logo-box">
+                <div
+                    className="logo-link-box">
+                    <div onClick={() => {
+                        setContactsBox(false);
+                        setEventMVersion(true);
+                        setTimeout(() => {
+                            setDisplayNone(true)
+                        }, 1100)
+                    }}
+                         className="logo-link-c logo-animate-c">
+                    </div>
+                </div>
+            </div>)}
                 <motion.div
 
                     initial={animationPage ? "setHidden" : "hidden"}
@@ -98,7 +113,7 @@ const HomeTest = () => {
 
                     {displayNone && (
                         <div className="layer" onClick={() => {
-                            mobileVersion && displayNone && setEventMVersion(!eventMVersion)
+                            displayNone && setEventMVersion(!eventMVersion)
                         }}>
 
                         </div>)}
@@ -217,22 +232,8 @@ const HomeTest = () => {
                                 exit={{opacity: 0, transition: {duration: 1}}}
                                 className="contacts-container"
                             >
-                                <div className="logo-box">
-                                    <div
-                                        className="logo-link-box">
-                                        <div onClick={() => {
-                                            setContactsBox(false);
-                                            setEventMVersion(true);
-                                            setTimeout(() => {
-                                                setDisplayNone(true)
-                                            }, 1100)
-                                        }}
-                                             className="logo-link-h logo-animate-c">
-                                        </div>
-                                    </div>
-                                </div>
-                                <Contacts/>
 
+                                <Contacts/>
                             </motion.div>
                             </>
                             )}

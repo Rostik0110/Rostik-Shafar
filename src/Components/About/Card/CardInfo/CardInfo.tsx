@@ -4,14 +4,13 @@ import phoneIcon from "../CardMedia/phone.png";
 import dateIcon from "../CardMedia/date.png";
 import homeIcon from "../CardMedia/home.png";
 import {motion} from "framer-motion";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 const CardInfo = () => {
-    const [mobileVersion] = useState(window.innerWidth <= 440 ? true : false)
+
+
     return(
         <motion.div
-            initial={mobileVersion ? {y:"20vw", opacity: 0} : {}}
-            whileInView={mobileVersion ? {y:0, transition: {duration: 0.8,delay: 1.5}, opacity: 1}: {}}
             className="card-about-container">
             <div className="card-about-box">
                 <img alt={" "} className="card-icon-about" src={gmailIcon}/>

@@ -98,30 +98,33 @@
   100%
     transform: translateY(0)
 
-.logo-link-h:after
+.logo-link-c:after
   cursor: pointer
   position: fixed
   z-index: 9
   font-size: 2vw
   top: 10%
-
   color: white
   font-family: "Inter-bold"
   content: "shafar."
 
-.logo-link-h:hover:after
+.logo-link-c:hover:after
   content: "shafar.contacts"
   white-space: nowrap
 
+.logo-animate-c:hover
+  margin-left: -40px
+  transition: all .4s cubic-bezier(0.2, 0.6, 0.2, 1)
 .logo-box
   width: 85%
-.logo-link-h
+.logo-link-c
   cursor: pointer
   width: 2vw
 
 @media screen and (max-width: 440px)
   .home
     flex-wrap: wrap
+    height: 100%
   .me-photo-home
     display: block
     margin: 0 auto
@@ -177,10 +180,13 @@
     font-size: 4vw
     animation: jump 1.5s infinite
 
-  .logo-link-h:after
+  .logo-link-c:after
     font-size: 4vw
+  .logo-animate-c:hover
+    margin-left: -12vw
   .contacts-container
     width: 100vw
+    height: auto
 
 
 
