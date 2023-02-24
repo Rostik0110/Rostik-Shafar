@@ -9,6 +9,7 @@ import Contacts from "../Contacts/Contacts";
 const HomeTest = () => {
 
     const [mobileVersion,setMobileVersion] = useState(window.innerWidth <= 440)
+    const [ipadVersion,setIpadVersion] = useState(window.innerWidth > 440 && window.innerWidth <= 940)
     const [displayNone, setDisplayNone] = useState(true)
     const [contactsBox, setContactsBox] = useState(false)
     const [animationPage, setAnimationPage] = useState(false)
@@ -16,11 +17,16 @@ const HomeTest = () => {
     const navigate = useNavigate()
     useEffect(() => {
         function handleResize() {
-            if(window.innerWidth <=440){
+            if(window.innerWidth <= 440){
                 setMobileVersion(true)
             }
-            else{
+            else if(window.innerWidth > 440 && window.innerWidth <= 940){
+                setIpadVersion(true)
                 setMobileVersion(false)
+            }else{
+                setMobileVersion(false)
+                setIpadVersion(false)
+
             }
         }
         window.addEventListener('resize', handleResize)
@@ -127,7 +133,7 @@ const HomeTest = () => {
                                 <motion.div
                                     exit={{opacity: 0, transition: {duration: 1}}}
                                     className="tap-anywhere">Tap anywhere</motion.div>
-                                {!mobileVersion && (
+                                {(!mobileVersion && !ipadVersion) && (
                                     <motion.div
                                         initial={animationPage ? "setHidden" : "hidden"}
                                         animate={animationPage ? "setVisible" : "visible"}
@@ -162,8 +168,66 @@ const HomeTest = () => {
                                         </div>
                                     </motion.div>
                                 )}
+                                {ipadVersion && (
+                                    <>
+                                        {eventMVersion && (
+                                            <motion.div
+                                                initial={"hidden"}
+                                                animate={"visible"}
+                                                className="button-link-box-home-ipad">
+                                                <div className="hide-text-block">
+                                                    <motion.div variants={textAnimation}
+                                                                className="button-link-home label-hello animate">
+                                                        Hello.
+                                                    </motion.div>
+                                                </div>
+                                                <div className="hide-text-block">
+                                                    <motion.div variants={textAnimation}
+                                                                className="button-link-home label-skills text-color-red animate">
+                                                        I am
+                                                    </motion.div>
+                                                </div>
+                                                <div className="hide-text-block">
+                                                    <motion.div variants={textAnimation}
+                                                                className="button-link-home text-color-red label-contacts animate">
+                                                        Rostislav
+                                                    </motion.div>
+                                                </div>
+                                            </motion.div>)}
+                                        {!eventMVersion && (
+                                            <motion.div
+                                                initial={"hidden"}
+                                                animate={"visible"}
+                                                exit={{opacity: 0, transition: {duration: 1.5}}}
+                                                className="button-link-box-home-ipad index">
+                                                <div className="hide-text-block">
+                                                    <motion.div variants={textAnimation} onClick={() => ButtonLink("/about")}
+                                                                className="button-link-home label-hello animate">
+                                                        About
+                                                    </motion.div>
+                                                </div>
+                                                <div className="hide-text-block">
+                                                    <motion.div variants={textAnimation} onClick={() => {ButtonLink("/skills")}}
+                                                                className="button-link-home label-skills text-color-red animate">
+                                                        Skills
+                                                    </motion.div>
+                                                </div>
+                                                <div className="hide-text-block">
+                                                    <motion.div
+                                                        variants={textAnimation}
+                                                        onClick={() => {
+                                                            ContactsButtonLink()
+                                                        }}
+                                                        className="button-link-home text-color-red label-contacts animate">
+                                                        Contacts
+                                                    </motion.div>
+                                                </div>
+                                            </motion.div>)}
+                                    </>
+                                )}
 
-
+                                {mobileVersion && (
+                                <>
                                 {eventMVersion && (
                                     <motion.div
                                         initial={"hidden"}
@@ -219,8 +283,11 @@ const HomeTest = () => {
                                             </motion.div>
                                         </div>
                                     </motion.div>)}
+                                </>
+                                    )}
                             </>
                         )}
+
                     </AnimatePresence>
                     <AnimatePresence>
                         {contactsBox && (
@@ -243,6 +310,5 @@ const HomeTest = () => {
         </AnimatePresence>
     )
 }
-
 
 export default HomeTest;

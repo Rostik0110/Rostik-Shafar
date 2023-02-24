@@ -121,6 +121,46 @@
   cursor: pointer
   width: 2vw
 
+@media screen and (max-width: 940px)
+  .tap-anywhere
+    display: block
+    text-align: center
+    width: 100%
+    font-family: Inter-bold
+    color: #ffffff
+    position: fixed
+    bottom: 2%
+    z-index: 4
+    font-size: 4vw
+    animation: jump 1.5s infinite
+  .button-link-box-home
+    display: none
+  .label-hello:after
+    display: none
+
+  .label-hello:hover:after
+    display: none
+
+  .label-skills:after
+    display: none
+
+  .label-skills:hover:after
+    display: none
+
+  .label-contacts:after
+    display: none
+
+  .label-contacts:hover:after
+    display: none
+  .layer
+    display: block
+    width: 100vw
+    height: 100vh
+    position: absolute
+    z-index: 2
+    opacity: 0
+@media screen and (min-width: 440px) and (max-width: 940px)
+
 @media screen and (max-width: 440px)
   .home
     flex-wrap: wrap
@@ -139,46 +179,15 @@
     z-index: 1
   .animate:hover
     margin-left: 0
-  .button-link-box-home
+  .button-link-box-home-ipad
     display: none
-  .layer
-    display: block
-    width: 100vw
-    height: 100vh
-    position: absolute
-    z-index: 2
-    opacity: 0
+
+
   .button-link-home
     font-size: 15vw
-  .label-hello:after
-    display: none
 
-  .label-hello:hover:after
-    display: none
 
-  .label-skills:after
-    display: none
 
-  .label-skills:hover:after
-    display: none
-
-  .label-contacts:after
-    display: none
-
-  .label-contacts:hover:after
-    display: none
-
-  .tap-anywhere
-    display: block
-    text-align: center
-    width: 100%
-    font-family: Inter-bold
-    color: #ffffff
-    position: fixed
-    bottom: 2%
-    z-index: 4
-    font-size: 4vw
-    animation: jump 1.5s infinite
 
   .logo-link-c:after
     font-size: 4vw
